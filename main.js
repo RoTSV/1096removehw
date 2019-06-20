@@ -1,23 +1,39 @@
 
 let div1=document.querySelector('.div-1');
 let inp=document.querySelector('.but');
-let input3=document.querySelector('.input2')
+let input2=document.querySelector('.input2')
 inp.addEventListener('click', function(){
-    let input2=document.createElement('input');
-    let h1=document.createElement('h1');
-    div1.appendChild(h1);
-    div1.appendChild(input2);
-    h1.innerHTML=input3.value;
-    h1.className='nub';
-    h1.style.fontSize='12px';
-    input2.type='button';
-    input2.value='-';
-    input2.style.width= '70px';
-    input2.style.height= '30px';
-    input2.style.background='#e9fa77';
-    input2.addEventListener('click', function(){
-        h1.remove();
+    let div2=document.createElement('div');
+    let span=document.createElement('span');
+    let input3=document.createElement('input');
+    
+    div1.appendChild(span);
+    div1.appendChild(div2);
+    div2.innerHTML=input2.value;
+    
+    div1.appendChild(input3);
+    span.style.display='block';
+    div2.className='nub';
+    div2.style.fontSize='17px';
+    input3.type='button';
+    input3.value='-';
+    
+    for(let i=0; i<document.querySelectorAll('span').length; i++){
+        document.querySelectorAll('span')[i].innerHTML=i+1;
+    };
+
+    input3.addEventListener('click', function(){
+        /* h1.remove();
         input2.remove();
+        span.remove(); */
+        div1.removeChild(div2);
+        div1.removeChild(span);
+        div1.removeChild(input3);
+        
+        for(let j=0; j<=document.querySelectorAll('span').length; j++){
+            document.querySelectorAll('span')[j].innerHTML=j+1;            
+        }; 
+        
     })
 })
 
